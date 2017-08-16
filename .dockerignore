@@ -1,0 +1,6 @@
+node_modules
+[Dd]ocker*
+.editorconfig
+.eslintrc.js
+.git
+.gitignore

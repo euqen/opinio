@@ -1,0 +1,33 @@
+{
+  "name": "opinio",
+  "version": "1.0.0",
+  "description": "Disqus comments killer",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "npm run lint && nodemon --exec npm start",
+    "start": "NODE_PATH=./ node src/server.js",
+    "lint": "eslint src --fix --cache",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eugene Shilin",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-morgan": "^1.0.1",
+    "koa-request-log": "^1.0.3",
+    "koa-request-logger": "^1.2.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "mongoose": "^4.11.1",
+    "mongoose-timestamp": "^0.6.0",
+    "morgan-json": "^1.1.0",
+    "shortid": "^2.2.8",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "eslint": "^4.2.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0"
+  }
+}

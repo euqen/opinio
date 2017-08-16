@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    restart: always
+    volumes:
+      - /data/mongo:/data/db/
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 9000:9000
+    restart: always
+    depends_on:
+      - mongodb
+    volumes:
+      - ./api:/usr/src/app
+    user: root
+
+  widget:
+    build:
+      context: ./widget
+      dockerfile: Dockerfile
+    ports:
+      - 3339:3339
+    restart: always
+    depends_on:
+      - api
+    volumes:
+      - ./widget:/usr/src/app
+    user: root
