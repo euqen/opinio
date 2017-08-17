@@ -5,6 +5,7 @@ import App from './app.jsx';
 const createContainerElement = () => {
     const widgetId = 'opinio-widget';
     let containerElement = document.getElementById(widgetId);
+
     if (!containerElement) {
         console.log('container element was not found');
         containerElement = document.createElement('div');
@@ -15,5 +16,5 @@ const createContainerElement = () => {
 };
 
 ReactDOM.render(
-    <App />, createContainerElement()
+    <App />, createContainerElement(),
 );

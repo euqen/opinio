@@ -19,20 +19,31 @@ module.exports = {
         contentBase: './dist',
         port: 3339,
         host: "0.0.0.0",
-        hot: true,
-        noInfo: true
+        watchOptions: {
+            poll: true
+        }
     },
     devtool: 'inline-source-map',
     module: {
         rules: [{
             test: /\.jsx$/,
             exclude: /(node_modules)/,
-            use: {
+            use: [{
                 loader: 'babel-loader',
                 options: {
-                    presets: [["es2015"], ["react"],["stage-2"]]
+                    presets: [["es2015"], ["react"],["stage-2"]],
+                    plugins: [['import', {libraryName: 'antd', style: 'css'}]],
+                },
+            }, {
+                loader: "eslint-loader",
+                options: {
+                    fix: true,
+                    cache: true,
                 }
-            }
+            }],
+        }, {
+            test: /\.css$/,
+            loaders: ['style-loader', 'css-loader'],
         }],
     },
     plugins: [
